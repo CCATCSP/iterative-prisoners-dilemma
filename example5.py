@@ -6,7 +6,7 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'E5'
+team_name = 'The Boyz'
 strategy_name = 'Collude first 100 rounds unless betrayed. Betray 101st round forward.'
 strategy_description = '''\
 Betray if ever betrayed.
