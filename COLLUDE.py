@@ -6,9 +6,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'FORTNITE' # Only 10 chars displayed.
-strategy_name = 'COPYCAT'
-strategy_description = 'Copies everytime!'
+team_name = 'TEAMC' # Only 10 chars displayed.
+strategy_name = 'COLLUDE'
+strategy_description = 'Culludes everytime!'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -26,7 +26,7 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'b'
+    return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
@@ -44,9 +44,25 @@ def test_move(my_history, their_history, my_score, their_score, result):
             ") returned " + "'" + real_result + "'" +
             " and should have returned '" + result + "'")
         return False
-    if len(my_history)==0: # It's the first round; collude.
-        return 'c'
-    elif their_history[-1]=='b':
-        return 'b' # Betray if betrayed last round
-    else:
-        return 'c' # otherwise collude.
+
+if __name__ == '__main__':
+     
+    # Test 1: Start by betraying.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=2,
+              result='c'):
+         print 'Test passed'
+     # Test 2: Keep betraying them even if they choose to collude.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=10,
+              result='c')             
