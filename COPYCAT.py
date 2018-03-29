@@ -7,8 +7,8 @@
 ####
 
 team_name = 'FORTNITE' # Only 10 chars displayed.
-strategy_name = 'CopyCat'
-strategy_description = 'Copies everytime!'
+strategy_name = 'Backstabber'
+strategy_description = 'Betrays everytime!'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -50,6 +50,3 @@ def test_move(my_history, their_history, my_score, their_score, result):
         return 'b' # Betray if they were severely punished last time,
     else:
         return 'c' # otherwise collude.
-
-pie = 5
-         
